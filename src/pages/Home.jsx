@@ -2,6 +2,8 @@ import { UserAuth } from '../context/AuthContext'
 import { Navigate } from 'react-router-dom'
 import { CloseSesion } from '../Components/CloseSesion'
 
+import { Link } from 'react-router-dom'
+
 export function Home() {
   const { user, logOut } = UserAuth()
 
@@ -24,6 +26,9 @@ export function Home() {
         </>
       )}
       {!user && <Navigate to = '/login'/>}
+      <button>
+        <Link to = '/admin'> Regresar al Admin </Link>
+      </button>
     </>
   )
 }

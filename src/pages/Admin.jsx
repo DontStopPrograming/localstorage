@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { UserAuth } from '../context/AuthContext';
 import { Navigate } from 'react-router-dom';
 
+import {Link } from 'react-router-dom'
+
 export function Admin() {
   const { user, logOut } = UserAuth();
 
@@ -29,9 +31,18 @@ export function Admin() {
 
   const handleImageChange = (e, index) => {
     const file = e.target.files[0];
-    const updatedImages = [...images];
-    updatedImages[index] = URL.createObjectURL(file);
-    setImages(updatedImages);
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const imageDataUrl = reader.result;
+      const updatedImages = [...images];
+      updatedImages[index] = imageDataUrl;
+      setImages(updatedImages);
+
+      localStorage.setItem('adminImages', JSON.stringify(updatedImages));
+    };
+
+    reader.readAsDataURL(file);
   };
 
   const handleImageDescriptionChange = (e, index) => {
@@ -155,6 +166,9 @@ export function Admin() {
         </div>
       )}
       {!user && <Navigate to="/login" />}
+      <button>
+        <Link to = '/home'> Ir al Home </Link>
+      </button>
     </>
   );
 }
