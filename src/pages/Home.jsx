@@ -1,14 +1,10 @@
-import React from 'react';
+import { useEffect, useState } from 'react'
 import { UserAuth } from '../context/AuthContext';
 import { Navigate, Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.css';
 import "swiper/css/effect-cards";
 import { EffectCards } from 'swiper'
-
-import imgBroaster from '../assets/broaster.jpg';
-import imgBrasa from '../assets/brasa.jpg';
-import imgCoca from '../assets/coca.jpg';
 
 export function Home() {
   const { user, logOut } = UserAuth();
@@ -22,8 +18,15 @@ export function Home() {
     }
   };
 
-  const images = [imgBroaster, imgBrasa, imgCoca];
+  const [adminImages, setAdminImages] = useState([])
 
+  useEffect(() => {
+    const storedAdminImages = localStorage.getItem('adminImages')
+    const parsedAdminImages = storedAdminImages ? JSON.parse(storedAdminImages) : []
+    setAdminImages(parsedAdminImages)
+  }, [])
+  
+  
   return (
     <>
       <h1>This is the Home</h1>
@@ -34,10 +37,10 @@ export function Home() {
         modules={[EffectCards]}
         className="mySwiper"
       >
-          {images.map((image, index) => (
+          {adminImages.map((image, index) => (
             <SwiperSlide key = {index} style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
               <div className = 'swiper-slide-content'>
-                <img src={image} alt={`Image $[index + 1]`} style = {{ objectFit: 'cover'}}/>
+                <img src={typeof image === 'object' ? URL.createObjectURL(image) : image } alt={`Image ${index + 1}`} style = {{ objectFit: 'cover'}}/>
               </div>
             </SwiperSlide>
           ))}
