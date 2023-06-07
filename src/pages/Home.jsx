@@ -19,13 +19,21 @@ export function Home() {
   };
 
   const [adminImages, setAdminImages] = useState([])
+  const [adminDescriptions, setAdminDescriptions] = useState([])
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {
     const storedAdminImages = localStorage.getItem('adminImages')
+    const storedAdminDescriptions = localStorage.getItem('adminDescriptions')
     const parsedAdminImages = storedAdminImages ? JSON.parse(storedAdminImages) : []
+    const parsedAdminDescriptions = storedAdminDescriptions ? JSON.parse(storedAdminDescriptions) : []
     setAdminImages(parsedAdminImages)
+    setAdminDescriptions(parsedAdminDescriptions)
   }, [])
-  
+
+  const handleSlideChange = (swiper) => {
+    setCurrentImageIndex(swiper.realIndex)
+  }
   
   return (
     <>
@@ -36,6 +44,7 @@ export function Home() {
         grabCursor={true} 
         modules={[EffectCards]}
         className="mySwiper"
+        onSlideChange = {handleSlideChange}
       >
           {adminImages.map((image, index) => (
             <SwiperSlide key = {index} style = {{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -44,8 +53,11 @@ export function Home() {
               </div>
             </SwiperSlide>
           ))}
-        
-      </Swiper>
+        </Swiper>
+
+        {adminDescriptions.length > 0 && (
+          <h1> {adminDescriptions[currentImageIndex]} </h1>
+        )}
 
       {user && (
         <>
