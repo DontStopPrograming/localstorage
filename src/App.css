@@ -24,8 +24,65 @@
   .swiper-slide:nth-child(3n) {
     background-color: transparent !important;
   }
+
+  .containerLogin {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-areas: 
+      'imagesLogin btnIniciar';
+  }
+
+  @media (max-width: 678px){
+    .containerLogin {
+      position: none;
+      display: grid;
+      grid-template-columns: none;
+      grid-template-rows: none;
+      grid-template-areas: 
+        none;
+    }
+
+    .containerLogin .btnIniciar{
+      margin-top: 20%;
+      margin-left: -10%;
+      z-index: 9;
+      
+    }
+
+    .containerLogin .imagesLogin {
+      width: 700px;
+      height: 100vh;
+      object-fit: contain;
+      margin-top: -80%;
+      margin-left: 20px;
+    }
+  }
   
-  
+  .containerLogin .imagesLogin {
+    grid-area: imagesLogin;
+    width: 50vw;
+    height: 100vh;
+    object-fit: contain;
+  }
+
+  .containerLogin .btnIniciar{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .btnIniciar {
+    grid-area: btnIniciar;
+    width: 150px;
+    height: 30px;
+    padding: 0 20px;
+    
+  }
+
+
 
   /* div.swiper-slide.swiper-slide-prev {
     background: transparent !important;

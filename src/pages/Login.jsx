@@ -3,6 +3,10 @@ import logo from '../assets/google.svg'
 import { UserAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 
+import '../App.css'
+
+import imgLogin from '../assets/guapa.jpg'
+
 export function Login() {
   const navigate = useNavigate()
   const { user, googleSignIn } = UserAuth()
@@ -22,9 +26,12 @@ export function Login() {
 
   return (
     <>
-      <button className = 'btnIniciar' onClick = {iniciarSesion}>
+      <div className = 'containerLogin'>
+        <img className = 'imagesLogin' src = {imgLogin} />
+        <button className = 'btnIniciar' onClick = {iniciarSesion}>
         <span> Iniciar con Gmail</span>
-      </button>
+        </button>
+      </div>
     </>
   )
 }
