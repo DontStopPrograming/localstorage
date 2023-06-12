@@ -66,9 +66,7 @@ export function Home() {
         </>
       )}
       {!user && <Navigate to="/login" />}
-      <button>
-        <Link to="/admin">Regresar al Admin</Link>
-      </button>
+     
     </>
   );
 }
