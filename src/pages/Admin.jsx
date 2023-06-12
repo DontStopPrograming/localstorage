@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { UserAuth } from '../context/AuthContext';
 import { Navigate } from 'react-router-dom';
 
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export function Admin() {
   const { user, logOut } = UserAuth();

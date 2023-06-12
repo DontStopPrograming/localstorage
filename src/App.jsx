@@ -1,5 +1,4 @@
 import './App.css'
-import React, { useState } from 'react'
 import { AuthContextProvider, UserAuth } from './context/AuthContext'
 import { MyRoutes } from './routers/MyRoutes'
 
