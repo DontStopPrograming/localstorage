@@ -53,6 +53,8 @@ html, body {
     grid-area: containerIniciar;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    
     /* border: 2px solid rgb(41, 197, 27); */
   
   } .containerIniciar img {
@@ -89,7 +91,7 @@ html, body {
       display: grid;
       justify-content: center;
       align-items: center;
-
+      text-align: center;
       grid-template-columns: repeat(1, 1fr);
       grid-template-rows: repeat(3, 1fr);
       grid-template-areas: 
@@ -105,10 +107,9 @@ html, body {
     
 
     .containerLogin img {
+      text-align: center;
       border-radius: 50px;
-      margin-top: 20px;
-      margin-left: 20%;
-      width: 300px;
+      width: 250px;
       height: 200px;
       object-fit: cover;
     }
@@ -123,6 +124,7 @@ html, body {
       } 
       
       .containerIniciar .logoGoogle {
+        
         opacity: 1;
         width: 30px;
         height:30px;
@@ -131,6 +133,7 @@ html, body {
       }
 
     .containerIniciar .iconUser {
+      
       opacity: 1;
       width: 50px;
       height:50px;
@@ -154,7 +157,7 @@ html, body {
       opacity: 1;
       padding: 0 40px;
       color: #fff;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
 
   }
