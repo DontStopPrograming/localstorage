@@ -108,8 +108,8 @@ export function Admin() {
                   <div key={index} style={{
                       display: 'flex',
                       flexDirection: 'column',
-                      width: '400px',
-                      height: '500px',
+                      width: '250px',
+                      height: '250px',
                       padding: '10px 20px',
                       background: '#232323',
                       color: '#fff',

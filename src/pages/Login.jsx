@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom'
 
 import '../App.css'
 
-import imgLogin from '../assets/guapa.jpg'
+import imgLogin from '../assets/guapa.png'
+import imgUser from '../assets/user.png'
 
 export function Login() {
   const navigate = useNavigate()
@@ -25,13 +26,28 @@ export function Login() {
   }, [user])
 
   return (
-    <>
-      <div className = 'containerLogin'>
-        <img className = 'imagesLogin' src = {imgLogin} />
-        <button className = 'btnIniciar' onClick = {iniciarSesion}>
-        <span> Iniciar con Gmail</span>
+    <div style = {{ background: '#F0CF56', height: '100vh'}}>
+      <div className = 'containerLogins'>
+
+      <div className='resumenApp'>
+          <h2> Restaurant App </h2>
+          <p> Mira sobre nuestra cartelera de menús, tenemos variedad de platillos. Ven y disfruta, también atendemos delivery según tu zona</p>
+        </div>
+        
+        <div className = 'containerLogin'> 
+          <img src = {imgLogin} />
+        </div>
+        <div className = 'containerIniciar'>
+          
+          <img className='iconUser' src={imgUser} alt="usuario icon" />
+          
+          <button onClick = {iniciarSesion}>
+            <img className='logoGoogle' src={logo} alt='google logo' style = {{width: '30px', objecFit: 'cover', float: 'left', top: '0px'}} />
+          <span style = {{ color: '#fff', fontSize: '15px'}}> Iniciar con Gmail</span>
         </button>
+        </div>
+        
       </div>
-    </>
+    </div>
   )
 }
