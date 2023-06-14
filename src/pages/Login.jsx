@@ -42,8 +42,8 @@ export function Login() {
           <img className='iconUser' src={imgUser} alt="usuario icon" />
           
           <button onClick = {iniciarSesion}>
-            <img className='logoGoogle' src={logo} alt='google logo' style = {{width: '30px', objecFit: 'cover', float: 'left', top: '0px'}} />
-          <span style = {{ color: '#fff', fontSize: '15px'}}> Iniciar con Gmail</span>
+            <img className='logoGoogle' src={logo} alt='google logo'/>
+          <span style = {{ color: '#fff', fontSize: '1rem'}}> Iniciar con Gmail</span>
         </button>
         </div>
         
