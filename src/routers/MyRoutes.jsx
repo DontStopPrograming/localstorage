@@ -24,7 +24,13 @@ export function MyRoutes() {
         
         <Route path = '/login' element = {<Login />} />
         <Route path = '/admin' element = {<Admin />} />
-        <Route path = '/home' element = {<Home />} />
+        <Route path = '/home' element = {
+          
+          <Protector>
+            <Home />
+          </Protector>
+        
+        } />
         <Route path = '/perfil' element = {<Protector>
           
           <Perfil />
