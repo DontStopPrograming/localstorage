@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 
 import '../App.css'
 
-import imgLogin from '../assets/guapa.png'
 import imgUser from '../assets/user.png'
 
 export function Login() {
@@ -35,7 +34,7 @@ export function Login() {
         </div>
         
         <div className = 'containerLogin'> 
-          <img src = {imgLogin} />
+          <img  />
         </div>
         <div className = 'containerIniciar'>
           

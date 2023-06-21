@@ -7,8 +7,8 @@ import { Protector } from '../Components/Protector';
 import { Admin } from '../pages/Admin';
 
 export function MyRoutes() {
-  const { user } = UserAuth();
-
+  const { user } = UserAuth()
+  
   const RequireAuth = ({ children }) => {
     return user ? children : <Navigate to="/login" />;
   };
@@ -16,6 +16,10 @@ export function MyRoutes() {
   const RequireAdmin = ({ children }) => {
     return user?.email === 'lylylatez@gmail.com' ? children : <Navigate to="/" />;
   };
+
+  const RedirectToLogin = () => {
+    return <Navigate to = '/login' />
+  }
 
   return (
     <BrowserRouter>
@@ -35,6 +39,8 @@ export function MyRoutes() {
         <Route path="/admin" element={<RequireAdmin><Admin /></RequireAdmin>} />
         <Route path="/home" element={<Home />} />
         <Route path="/perfil" element={<Protector><Perfil /></Protector>} />
+        <Route path = '/login/*' element = {<RedirectToLogin />} />
+        
       </Routes>
     </BrowserRouter>
   );
