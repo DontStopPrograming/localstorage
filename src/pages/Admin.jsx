@@ -154,7 +154,7 @@ export function Admin() {
                           onChange={(e) => handleImageDescriptionChange(e, index)}
                         />
                         {descriptions[index] && <p style={{ wordWrap: 'break-word' }}>{descriptions[index]}</p>}
-                        <button onClick={() => handleImageSubmit(index)}>Aceptar</button>
+                        <button onClick={() => handleImageSubmit(index)}> Aceptar </button>
                       </>
                     )}
                   </div>
